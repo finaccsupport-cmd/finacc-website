@@ -1,1 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinAcc Advisory Services | Your Growth. Our Commitment.</title>
+    <style>
+        :root {
+            --primary-color: #0A2540; /* Deep Navy Blue */
+            --secondary-color: #F2A900; /* Amber Gold */
+            --text-color: #333333;
+            --bg-light: #F8F9FA;
+            --white: #FFFFFF;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.1);
+        }
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        .brand-text h1 {
+            font-size: 22px;
+            color: var(--primary-color);
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .brand-text p {
+            font-size: 11px;
+            color: var(--secondary-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #153e66 100%);
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--secondary-color);
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Sections General */
+        section {
+            padding: 70px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        /* About Us */
+        .about-content {
+            background-color: var(--bg-light);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 17px;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border: 1px solid #eef2f5;
+            border-top: 4px solid var(--primary-color);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease, border-top-color 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--secondary-color);
+        }
+
+        .service-card h3 {
+            color: var(--primary-color);
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        /* Advanced Calculators Design */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            align-items: start;
+        }
+
+        .calculator-card {
+            background-color: var(--bg-light);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            border: 1px solid #e2e8f0;
+        }
+
+        .calculator-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 20px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+
+        /* Interactive Regime Tabs */
+        .regime-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            background-color: #e2e8f0;
+            padding: 4px;
+            border-radius: 6px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            background: none;
+            color: var(--primary-color);
+            padding: 8px;
+            font-size: 14px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn:hover {
+            background-color: rgba(255,255,255,0.5);
+        }
+
+        .tab-btn.active {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccd0d4;
+            border-radius: 4px;
+            font-size: 15px;
+            outline: none;
+            background-color: var(--white);
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--primary-color);
+        }
+
+        /* Detailed Output Table Formatting */
+        .calc-result-box {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: var(--white);
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            display: none;
+        }
+
+        .calc-result-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 16px;
+            border-bottom: 1px dashed #cbd5e1;
+            padding-bottom: 5px;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            padding: 5px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .result-row.total-row {
+            font-weight: 700;
+            color: #0d9488;
+            border-top: 1px solid var(--text-color);
+            border-bottom: none;
+            font-size: 15px;
+            padding-top: 8px;
+            margin-top: 5px;
+        }
+
+        /* Features Layout */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .testimonial-item {
+            background-color: var(--bg-light);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary-color);
+            font-style: italic;
+        }
+
+        /* Enquiry Form */
+        .enquiry-section {
+            background-color: var(--bg-light);
+            border-radius: var(--border-radius);
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 40px;
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Founder Profile */
+        .founder-card {
+            background-color: var(--white);
+            border: 1px solid #eef2f5;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 40px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .founder-name {
+            color: var(--primary-color);
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .founder-title {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .founder-degrees {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            font-size: 14px;
+        }
+
+        .footer-contacts {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-contacts a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation Section -->
+    <header>
+        <div class="nav-container">
+            <div class="logo-area">
+                <img src="Logo file.png" alt="FinAcc Advisory Services Logo" class="logo-img">
+                <div class="brand-text">
+                    <h1>FinAcc</h1>
+                    <p>Advisory Services</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#calculators">Tools</a></li>
+                    <li><a href="#why-us">Why Choose Us</a></li>
+                    <li><a href="#enquiry">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner/Hero Section -->
+    <section class="hero" style="max-width:100%; padding: 60px 20px;">
+        <h2>FinAcc Advisory Services</h2>
+        <p>Your Growth. Our Commitment.</p>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about">
+        <h2 class="section-title">About Us</h2>
+        <div class="about-content">
+            <p>FinAcc Advisory Services is a professional Finance, Accounts and Business Advisory firm based in Ahmedabad, Gujarat. We help businesses improve financial performance, strengthen internal controls, optimize cash flow and enhance profitability through practical and result-oriented solutions.</p>
+        </div>
+    </section>
+
+    <!-- Our Services Section -->
+    <section id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Accounting & Bookkeeping</h3>
+                <p>Accurate, reliable and compliant accounting solutions including bookkeeping, ledger maintenance, bank reconciliations, financial statements and compliance reporting.</p>
+            </div>
+            <div class="service-card">
+                <h3>Budgeting & Forecasting</h3>
+                <p>Accurate budgets, forecasting models, scenario planning, variance analysis and growth planning.</p>
+            </div>
+            <div class="service-card">
+                <h3>MIS & Financial Reporting</h3>
+                <p>Monthly MIS, KPI dashboards, profitability analysis and management reporting.</p>
+            </div>
+            <div class="service-card">
+                <h3>Virtual CFO Services</h3>
+                <p>Strategic financial leadership, business planning, investor reporting and performance monitoring.</p>
+            </div>
+            <div class="service-card">
+                <h3>Cash Flow Management</h3>
+                <p>Cash flow forecasting, liquidity management, working capital optimization and treasury support.</p>
+            </div>
+            <div class="service-card">
+                <h3>Profitability & Cost Analysis</h3>
+                <p>Margin improvement, cost reduction, product profitability and operational efficiency reviews.</p>
+            </div>
+            <div class="service-card">
+                <h3>Accounts Receivable Management</h3>
+                <p>Debtor monitoring, collection management, credit control and aging analysis.</p>
+            </div>
+            <div class="service-card">
+                <h3>Financial Controls & Process Improvement</h3>
+                <p>Internal controls, SOP development, risk management and process improvement.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Financial Calculators Section -->
+    <section id="calculators">
+        <h2 class="section-title">Financial Calculators</h2>
+        <div class="tools-grid">
+            
+            <!-- Income Tax Tool Box with Regime Selection Tabs -->
+            <div class="calculator-card">
+                <h3>Income Tax Calculator</h3>
+                
+                <div class="regime-tabs">
+                    <button class="tab-btn active" id="btn-new" onclick="setRegime('new')">New Regime</button>
+                    <button class="tab-btn" id="btn-old" onclick="setRegime('old')">Old Regime</button>
+                </div>
+
+                <div class="form-group">
+                    <label for="annual-income">Gross Annual Income (₹)</label>
+                    <input type="number" id="annual-income" placeholder="e.g. 1200000">
+                </div>
+
+                <!-- Dynamically shifted container depending on selected active regime tab -->
+                <div class="form-group" id="deduction-group" style="display: none;">
+                    <label for="deductions">Eligible Deductions (80C, 80D, etc.) (₹)</label>
+                    <input type="number" id="deductions" placeholder="e.g. 150000" value="0">
+                </div>
+
+                <div class="form-group" id="info-note" style="color: #64748b; font-size: 13px; margin-bottom: 15px;">
+                    ℹ️ <em>Standard Deduction of ₹75,000 is automatically applied in the New Regime layout.</em>
+                </div>
+
+                <button onclick="calculateDetailedTax()">Calculate Detailed Tax</button>
+                
+                <!-- Detailed Breakdown Component Box -->
+                <div id="tax-result-box" class="calc-result-box">
+                    <h4>Tax Computation Breakdown</h4>
+                    <div class="result-row"><span>Gross Total Income:</span><span id="res-gross">₹0</span></div>
+                    <div class="result-row"><span>Standard Deduction:</span><span id="res-std-ded">₹0</span></div>
+                    <div class="result-row" id="row-custom-ded" style="display:none;"><span>Other Deductions:</span><span id="res-cust-ded">₹0</span></div>
+                    <div class="result-row" style="font-weight:600;"><span>Net Taxable Income:</span><span id="res-net-taxable">₹0</span></div>
+                    <div class="result-row"><span>Base Slab Tax:</span><span id="res-base-tax">₹0</span></div>
+                    <div class="result-row" id="row-rebate" style="color: #0d9488; display:none;"><span>Tax Rebate Applied:</span><span id="res-rebate">₹0</span></div>
+                    <div class="result-row"><span>Health & Education Cess (4%):</span><span id="res-cess">₹0</span></div>
+                    <div class="result-row total-row"><span>Total Payable Tax:</span><span id="res-final-tax">₹0</span></div>
+                </div>
+            </div>
+
+            <!-- GST Calculator with Detailed Splits -->
+            <div class="calculator-card">
+                <h3>GST Calculator</h3>
+                <div class="form-group">
+                    <label for="taxable-amount">Transaction Base Amount (₹)</label>
+                    <input type="number" id="taxable-amount" placeholder="e.g. 50000">
+                </div>
+                <div class="form-group">
+                    <label for="gst-rate">Applicable GST Slab</label>
+                    <select id="gst-rate">
+                        <option value="5">5% (Essential items)</option>
+                        <option value="12">12% (Standard goods)</option>
+                        <option value="18" selected>18% (Services & Goods)</option>
+                        <option value="28">28% (Luxury items)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="gst-type">Supply Configuration</label>
+                    <select id="gst-type">
+                        <option value="intra">Intra-State (CGST + SGST split)</option>
+                        <option value="inter">Inter-State (IGST total)</option>
+                    </select>
+                </div>
+                <button onclick="calculateDetailedGST()">Calculate Itemized GST</button>
+                
+                <!-- Itemized Invoice Grid Breakdown -->
+                <div id="gst-result-box" class="calc-result-box">
+                    <h4>Tax Invoice Split Breakdown</h4>
+                    <div class="result-row"><span>Base Untaxed Amount:</span><span id="res-gst-base">₹0</span></div>
+                    <div class="result-row" id="row-cgst"><span>CGST (Central Tax):</span><span id="res-cgst">₹0</span></div>
+                    <div class="result-row" id="row-sgst"><span>SGST (State Tax):</span><span id="res-sgst">₹0</span></div>
+                    <div class="result-row" id="row-igst" style="display:none;"><span>IGST (Integrated Tax):</span><span id="res-igst">₹0</span></div>
+                    <div class="result-row"><span>Gross Aggregate Tax:</span><span id="res-gst-total-tax">₹0</span></div>
+                    <div class="result-row total-row"><span>Total Invoice Amount:</span><span id="res-gst-gross">₹0</span></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Why FinAcc & Testimonials Split Container -->
+    <section id="why-us">
+        <div class="features-grid">
+            <div>
+                <h2 class="section-title" style="text-align: left; padding-bottom: 10px; margin-bottom: 25px;">Why FinAcc?</h2>
+                <ul class="feature-list">
+                    <li>Experienced Finance Leadership</li>
+                    <li>Practical Business Solutions</li>
+                    <li>Strong Financial Controls</li>
+                    <li>Professional & Confidential Service</li>
+                    <li>Result-Oriented Approach</li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="section-title" style="text-align: left; padding-bottom: 10px; margin-bottom: 25px;">Testimonials</h2>
+                <div class="testimonial-item">
+                    "Professional and reliable advisory support."
+                </div>
+                <div class="testimonial-item">
+                    "Excellent MIS reporting and finance expertise."
+                </div>
+                <div class="testimonial-item">
+                    "Trusted Virtual CFO services."
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Container -->
+    <section id="enquiry">
+        <div class="enquiry-section">
+            <h2 class="section-title" style="margin-bottom: 25px;">Enquiry Form</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="requirement">Your Requirement</label>
+                    <textarea id="requirement" rows="4" required></textarea>
+                </div>
+                <button type="submit">Submit Enquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Leader/Founder Section -->
+    <section id="founder">
+        <h2 class="section-title">Founder Profile</h2>
+        <div class="founder-card">
+            <div class="founder-name">Vipul Vyas</div>
+            <div class="founder-title">Founder & Principal Consultant</div>
+            <div class="founder-degrees">B.Com (Mumbai) | CA PE-II | Acct. Tech. (ICAI) | GDC&A (Mumbai) | MBA (Finance)</div>
+            <p class="founder-bio">More than 20 years of experience in Accounts, Finance, MIS Reporting, Cash Flow Management, Internal Audit, Financial Controls and Business Process Improvement.</p>
+        </div>
+    </section>
+
+    <!-- Footer Content Metadata -->
+    <footer>
+        <div class="footer-contacts">
+            <span>📍 Ahmedabad, Gujarat</span> | 
+            <span>📞 <a href="tel:+919594151218">+91 95941 51218</a></span> | 
+            <span>✉️ <a href="mailto:FinAcc.support@gmail.com">FinAcc.support@gmail.com</a></span> | 
+            <span>🌐 <a href="http://www.finaccadvisory.com" target="_blank">www.finaccadvisory.com</a></span>
+        </div>
+        <p>&copy; 2026 FinAcc Advisory Services. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Interactive Execution Logic Engine -->
+    <script>
+        let currentRegime = 'new';
+
+        function setRegime(regime) {
+            currentRegime = regime;
+            document.getElementById('btn-new').classList.toggle('active', regime === 'new');
+            document.Normally I can help with things like this, but I don't seem to have access to that content. You can try again or ask me for something else.
