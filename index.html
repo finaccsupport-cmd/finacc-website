@@ -7,8 +7,8 @@
 <style>
 body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#222;line-height:1.6}
 header{background:#001b4d;color:#fff;padding:40px;text-align:center}
-.logo-box{background:#fff;padding:20px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 15px auto;max-width:550px;min-height:120px}
-.logo-box img{max-width:100%;height:auto;display:block}
+.logo-box{background:#fff;padding:15px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 15px auto;max-width:550px;min-height:120px;box-sizing:border-box}
+.logo-box img{max-width:100%;max-height:120px;width:auto;height:auto;display:block;object-fit:contain}
 section{padding:40px 8%}
 h2{color:#001b4d;border-bottom:2px solid #f4b13d;padding-bottom:8px;margin-bottom:20px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
@@ -26,7 +26,8 @@ footer a{color:#f4b13d;text-decoration:none}
 
 <header>
 <div class="logo-box">
-<img src="logo.png" alt="FinAcc Advisory Services Logo">
+<!-- Fallback error script automatically tries uppercase extensions if the file name differs -->
+<img id="companyLogo" src="logo.png" alt="FinAcc Advisory Services Logo" onerror="handleLogoError(this)">
 </div>
 <h1>FinAcc Advisory Services</h1>
 <p>Your Growth. Our Commitment.</p>
@@ -78,6 +79,7 @@ footer a{color:#f4b13d;text-decoration:none}
 <section>
 <h2>Financial Calculators</h2>
 <div class="calculator-box">
+<!-- Income Tax Calculator Section -->
 <div class="card">
 <h3>Income Tax Calculator</h3>
 <input id="taxIncome" type="number" placeholder="Annual Income">
@@ -85,6 +87,7 @@ footer a{color:#f4b13d;text-decoration:none}
 <button onclick="calculateIncomeTax()">Calculate Tax</button>
 </div>
 
+<!-- GST Calculator Section -->
 <div class="card">
 <h3>GST Calculator</h3>
 <input id="gstAmount" type="number" placeholder="Taxable Amount">
@@ -144,6 +147,24 @@ footer a{color:#f4b13d;text-decoration:none}
 </footer>
 
 <script>
+// Handles automated case-sensitive fallback extensions for file hosting
+let attempt = 0;
+function handleLogoError(img) {
+    attempt++;
+    if (attempt === 1) {
+        img.src = "Logo.png";
+    } else if (attempt === 2) {
+        img.src = "logo.PNG";
+    } else if (attempt === 3) {
+        img.src = "Logo.PNG";
+    } else {
+        img.onerror = null; 
+        img.alt = "FinAcc Advisory Services";
+        img.style.display = "none";
+        document.querySelector('.logo-box').innerHTML = "<h2 style='margin:0; color:#001b4d; border:none;'>FinAcc</h2>";
+    }
+}
+
 function calculateGST() {
     let amt = document.getElementById('gstAmount').value;
     let r = document.getElementById('gstRate').value;
@@ -166,10 +187,9 @@ function calculateIncomeTax() {
         return;
     }
     
-    // Simple mock calculation template for demonstration purposes
     let tax = 0;
     if (taxableIncome > 700000) {
-        tax = taxableIncome * 0.10; // Simplified uniform rate template
+        tax = taxableIncome * 0.10; 
     } else if (taxableIncome > 300000) {
         tax = taxableIncome * 0.05;
     }
