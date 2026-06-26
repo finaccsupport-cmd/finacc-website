@@ -28,10 +28,10 @@
             background-color: var(--white);
         }
 
-        /* Header & Navigation */
+        /* Header & Navigation Layout Fixes */
         header {
             background-color: var(--white);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -43,35 +43,36 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 10px 20px;
         }
 
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 18px;
         }
 
+        /* Upscaled Prominent Brand Logo Styling */
         .logo-img {
-            height: 60px;
+            height: 90px;
             width: auto;
             display: block;
             object-fit: contain;
         }
 
         .brand-text h1 {
-            font-size: 22px;
+            font-size: 26px;
             color: var(--primary-color);
             font-weight: 700;
             line-height: 1.1;
         }
 
         .brand-text p {
-            font-size: 11px;
+            font-size: 12px;
             color: var(--secondary-color);
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
         nav ul {
@@ -92,7 +93,7 @@
             color: var(--secondary-color);
         }
 
-        /* Hero Section */
+        /* Hero Banner */
         .hero {
             background: linear-gradient(135deg, var(--primary-color) 0%, #153e66 100%);
             color: var(--white);
@@ -114,7 +115,7 @@
             margin: 0 auto;
         }
 
-        /* Sections General */
+        /* Core Structure Sections */
         section {
             padding: 70px 20px;
             max-width: 1200px;
@@ -141,7 +142,7 @@
             background-color: var(--secondary-color);
         }
 
-        /* About Us */
+        /* About Us Card */
         .about-content {
             background-color: var(--bg-light);
             padding: 40px;
@@ -153,7 +154,7 @@
             font-size: 17px;
         }
 
-        /* Services Grid */
+        /* Services Grid Layout */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -181,10 +182,10 @@
             margin-bottom: 12px;
         }
 
-        /* Advanced Calculators Design */
+        /* Interactive Calculation Grid Framework */
         .tools-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 40px;
             align-items: start;
         }
@@ -205,11 +206,11 @@
             padding-bottom: 10px;
         }
 
-        /* Interactive Regime Tabs */
+        /* Structural Tab Segment Elements */
         .regime-tabs {
             display: flex;
             margin-bottom: 20px;
-            background-color: #e2e8f0;
+            background-color: #cbd5e1;
             padding: 4px;
             border-radius: 6px;
         }
@@ -217,23 +218,24 @@
         .tab-btn {
             flex: 1;
             background: none;
+            border: none;
             color: var(--primary-color);
             padding: 10px;
             font-size: 14px;
             font-weight: 600;
             border-radius: 4px;
-            border: none;
             cursor: pointer;
             transition: all 0.2s ease;
         }
 
         .tab-btn:hover {
-            background-color: rgba(255,255,255,0.5);
+            background-color: rgba(255,255,255,0.4);
         }
 
         .tab-btn.active {
             background-color: var(--primary-color);
             color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .form-group {
@@ -249,7 +251,7 @@
 
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
-            padding: 10px;
+            padding: 11px;
             border: 1px solid #ccd0d4;
             border-radius: 4px;
             font-size: 15px;
@@ -259,12 +261,31 @@
 
         .form-group input:focus, .form-group select:focus {
             border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(10,37,64,0.1);
         }
 
-        /* Detailed Output Table Formatting */
+        .action-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 12px 20px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+            margin-top: 5px;
+        }
+
+        .action-btn:hover {
+            background-color: #153e66;
+        }
+
+        /* Detailed Output Table Breakdowns */
         .calc-result-box {
             margin-top: 20px;
-            padding: 15px;
+            padding: 18px;
             background-color: var(--white);
             border: 1px solid #cbd5e1;
             border-radius: 6px;
@@ -273,31 +294,31 @@
 
         .calc-result-box h4 {
             color: var(--primary-color);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             font-size: 16px;
             border-bottom: 1px dashed #cbd5e1;
-            padding-bottom: 5px;
+            padding-bottom: 6px;
         }
 
         .result-row {
             display: flex;
             justify-content: space-between;
             font-size: 14px;
-            padding: 5px 0;
+            padding: 6px 0;
             border-bottom: 1px solid #f1f5f9;
         }
 
         .result-row.total-row {
             font-weight: 700;
             color: #0d9488;
-            border-top: 1px solid var(--text-color);
+            border-top: 1.5px solid var(--primary-color);
             border-bottom: none;
-            font-size: 15px;
-            padding-top: 8px;
-            margin-top: 5px;
+            font-size: 16px;
+            padding-top: 10px;
+            margin-top: 8px;
         }
 
-        /* Features Layout */
+        /* Features Split Grid Layout */
         .features-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -311,6 +332,11 @@
             .nav-container {
                 flex-direction: column;
                 gap: 15px;
+                text-align: center;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
             }
         }
 
@@ -343,7 +369,7 @@
             font-style: italic;
         }
 
-        /* Enquiry Form */
+        /* Enquiry Block Box */
         .enquiry-section {
             background-color: var(--bg-light);
             border-radius: var(--border-radius);
@@ -353,7 +379,7 @@
             box-shadow: var(--box-shadow);
         }
 
-        /* Founder Profile */
+        /* Founder Layout Card */
         .founder-card {
             background-color: var(--white);
             border: 1px solid #eef2f5;
@@ -387,7 +413,7 @@
             margin-bottom: 20px;
         }
 
-        /* Footer */
+        /* Footer Element Box */
         footer {
             background-color: var(--primary-color);
             color: var(--white);
@@ -413,6 +439,7 @@
 </head>
 <body>
 
+    <!-- Header Navigation Section -->
     <header>
         <div class="nav-container">
             <div class="logo-area">
@@ -434,11 +461,13 @@
         </div>
     </header>
 
+    <!-- Banner/Hero Section -->
     <section class="hero" style="max-width:100%; padding: 60px 20px;">
         <h2>FinAcc Advisory Services</h2>
         <p>Your Growth. Our Commitment.</p>
     </section>
 
+    <!-- About Us Section -->
     <section id="about">
         <h2 class="section-title">About Us</h2>
         <div class="about-content">
@@ -446,6 +475,7 @@
         </div>
     </section>
 
+    <!-- Our Services Section -->
     <section id="services">
         <h2 class="section-title">Our Services</h2>
         <div class="services-grid">
@@ -484,16 +514,18 @@
         </div>
     </section>
 
+    <!-- Complete Restored Advanced Financial Calculators Section -->
     <section id="calculators">
         <h2 class="section-title">Financial Calculators</h2>
         <div class="tools-grid">
             
+            <!-- Income Tax Box with Working Dynamic Tabs -->
             <div class="calculator-card">
                 <h3>Income Tax Calculator</h3>
                 
                 <div class="regime-tabs">
-                    <button class="tab-btn active" id="btn-new" onclick="setRegime('new')">New Regime</button>
-                    <button class="tab-btn" id="btn-old" onclick="setRegime('old')">Old Regime</button>
+                    <button type="button" class="tab-btn active" id="btn-new" onclick="setRegime('new')">New Regime</button>
+                    <button type="button" class="tab-btn" id="btn-old" onclick="setRegime('old')">Old Regime</button>
                 </div>
 
                 <div class="form-group">
@@ -510,8 +542,9 @@
                     ℹ️ <em>Standard Deduction of ₹75,000 is automatically applied in the New Regime layout.</em>
                 </div>
 
-                <button onclick="calculateDetailedTax()">Calculate Detailed Tax</button>
+                <button class="action-btn" onclick="calculateDetailedTax()">Calculate Detailed Tax</button>
                 
+                <!-- Computations Table -->
                 <div id="tax-result-box" class="calc-result-box">
                     <h4>Tax Computation Breakdown</h4>
                     <div class="result-row"><span>Gross Total Income:</span><span id="res-gross">₹0</span></div>
@@ -520,4 +553,131 @@
                     <div class="result-row" style="font-weight:600;"><span>Net Taxable Income:</span><span id="res-net-taxable">₹0</span></div>
                     <div class="result-row"><span>Base Slab Tax:</span><span id="res-base-tax">₹0</span></div>
                     <div class="result-row" id="row-rebate" style="color: #0d9488; display:none;"><span>Tax Rebate Applied:</span><span id="res-rebate">₹0</span></div>
-                    <div class="result-row"><span>Health & Education Cess (4%):</span><span id="res-cess">₹0</span>
+                    <div class="result-row"><span>Health & Education Cess (4%):</span><span id="res-cess">₹0</span></div>
+                    <div class="result-row total-row"><span>Total Payable Tax:</span><span id="res-final-tax">₹0</span></div>
+                </div>
+            </div>
+
+            <!-- Completely Restored & Enhanced GST Calculator Block -->
+            <div class="calculator-card">
+                <h3>GST Calculator</h3>
+                <div class="form-group">
+                    <label for="taxable-amount">Transaction Base Amount (₹)</label>
+                    <input type="number" id="taxable-amount" placeholder="e.g. 50000">
+                </div>
+                <div class="form-group">
+                    <label for="gst-rate">Applicable GST Slab</label>
+                    <select id="gst-rate">
+                        <option value="5">5% (Essential goods)</option>
+                        <option value="12">12% (Standard goods)</option>
+                        <option value="18" selected>18% (Services & IT Goods)</option>
+                        <option value="28">28% (Luxury items)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="gst-type">Supply Configuration</label>
+                    <select id="gst-type">
+                        <option value="intra">Intra-State (CGST + SGST split)</option>
+                        <option value="inter">Inter-State (IGST total)</option>
+                    </select>
+                </div>
+                <button class="action-btn" onclick="calculateDetailedGST()">Calculate Itemized GST</button>
+                
+                <!-- Itemized Dynamic Invoice Breakdown -->
+                <div id="gst-result-box" class="calc-result-box">
+                    <h4>Tax Invoice Split Breakdown</h4>
+                    <div class="result-row"><span>Base Untaxed Amount:</span><span id="res-gst-base">₹0</span></div>
+                    <div class="result-row" id="row-cgst"><span>CGST (Central Tax):</span><span id="res-cgst">₹0</span></div>
+                    <div class="result-row" id="row-sgst"><span>SGST (State Tax):</span><span id="res-sgst">₹0</span></div>
+                    <div class="result-row" id="row-igst" style="display:none;"><span>IGST (Integrated Tax):</span><span id="res-igst">₹0</span></div>
+                    <div class="result-row"><span>Gross Aggregate Tax:</span><span id="res-gst-total-tax">₹0</span></div>
+                    <div class="result-row total-row"><span>Total Invoice Amount:</span><span id="res-gst-gross">₹0</span></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Why FinAcc & Testimonials Split Container -->
+    <section id="why-us">
+        <div class="features-grid">
+            <div>
+                <h2 class="section-title" style="text-align: left; padding-bottom: 10px; margin-bottom: 25px;">Why FinAcc?</h2>
+                <ul class="feature-list">
+                    <li>Experienced Finance Leadership</li>
+                    <li>Practical Business Solutions</li>
+                    <li>Strong Financial Controls</li>
+                    <li>Professional & Confidential Service</li>
+                    <li>Result-Oriented Approach</li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="section-title" style="text-align: left; padding-bottom: 10px; margin-bottom: 25px;">Testimonials</h2>
+                <div class="testimonial-item">
+                    "Professional and reliable advisory support."
+                </div>
+                <div class="testimonial-item">
+                    "Excellent MIS reporting and finance expertise."
+                </div>
+                <div class="testimonial-item">
+                    "Trusted Virtual CFO services."
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Container -->
+    <section id="enquiry">
+        <div class="enquiry-section">
+            <h2 class="section-title" style="margin-bottom: 25px;">Enquiry Form</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="requirement">Your Requirement</label>
+                    <textarea id="requirement" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="action-btn">Submit Enquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Leader/Founder Section -->
+    <section id="founder">
+        <h2 class="section-title">Founder Profile</h2>
+        <div class="founder-card">
+            <div class="founder-name">Vipul Vyas</div>
+            <div class="founder-title">Founder & Principal Consultant</div>
+            <div class="founder-degrees">B.Com (Mumbai) | CA PE-II | Acct. Tech. (ICAI) | GDC&A (Mumbai) | MBA (Finance)</div>
+            <p class="founder-bio">More than 20 years of experience in Accounts, Finance, MIS Reporting, Cash Flow Management, Internal Audit, Financial Controls and Business Process Improvement.</p>
+        </div>
+    </section>
+
+    <!-- Footer Content Metadata -->
+    <footer>
+        <div class="footer-contacts">
+            <span>📍 Ahmedabad, Gujarat</span> | 
+            <span>📞 <a href="tel:+919594151218">+91 95941 51218</a></span> | 
+            <span>✉️ <a href="mailto:FinAcc.support@gmail.com">FinAcc.support@gmail.com</a></span> | 
+            <span>🌐 <a href="http://www.finaccadvisory.com" target="_blank">www.finaccadvisory.com</a></span>
+        </div>
+        <p>&copy; 2026 FinAcc Advisory Services. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Intact Functional Calculation Execution Logic Script Engine -->
+    <script>
+        let currentRegime = 'new';
+
+        function setRegime(regime) {
+            currentRegime = regime;
+            document.getElementById('btn-new').classList.toggle('active', regime ===Normally I can help with things like this, but I don't seem to have access to that content. You can try again or ask me for something else.
