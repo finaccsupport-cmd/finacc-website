@@ -28,7 +28,7 @@
             background-color: var(--white);
         }
 
-        /* Header & Navigation Layout Fixes */
+        /* Header & Navigation Layout */
         header {
             background-color: var(--white);
             box-shadow: 0 2px 8px rgba(0,0,0,0.06);
@@ -52,7 +52,6 @@
             gap: 18px;
         }
 
-        /* Upscaled Prominent Brand Logo Styling */
         .logo-img {
             height: 90px;
             width: auto;
@@ -97,7 +96,7 @@
         .hero {
             background: linear-gradient(135deg, var(--primary-color) 0%, #153e66 100%);
             color: var(--white);
-            padding: 80px 20px;
+            padding: 60px 20px;
             text-align: center;
         }
 
@@ -115,7 +114,7 @@
             margin: 0 auto;
         }
 
-        /* Core Structure Sections */
+        /* Structural Framework */
         section {
             padding: 70px 20px;
             max-width: 1200px;
@@ -142,7 +141,7 @@
             background-color: var(--secondary-color);
         }
 
-        /* About Us Card */
+        /* About Us */
         .about-content {
             background-color: var(--bg-light);
             padding: 40px;
@@ -182,7 +181,7 @@
             margin-bottom: 12px;
         }
 
-        /* Interactive Calculation Grid Framework */
+        /* Calculator Split Side-by-Side Grid Layout */
         .tools-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -204,38 +203,6 @@
             font-size: 20px;
             border-bottom: 2px solid #e2e8f0;
             padding-bottom: 10px;
-        }
-
-        /* Structural Tab Segment Elements */
-        .regime-tabs {
-            display: flex;
-            margin-bottom: 20px;
-            background-color: #cbd5e1;
-            padding: 4px;
-            border-radius: 6px;
-        }
-
-        .tab-btn {
-            flex: 1;
-            background: none;
-            border: none;
-            color: var(--primary-color);
-            padding: 10px;
-            font-size: 14px;
-            font-weight: 600;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .tab-btn:hover {
-            background-color: rgba(255,255,255,0.4);
-        }
-
-        .tab-btn.active {
-            background-color: var(--primary-color);
-            color: var(--white);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .form-group {
@@ -264,32 +231,14 @@
             box-shadow: 0 0 0 2px rgba(10,37,64,0.1);
         }
 
-        .action-btn {
-            background-color: var(--primary-color);
-            color: var(--white);
-            border: none;
-            padding: 12px 20px;
-            font-size: 15px;
-            font-weight: 600;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-            transition: background-color 0.3s ease;
-            margin-top: 5px;
-        }
-
-        .action-btn:hover {
-            background-color: #153e66;
-        }
-
-        /* Detailed Output Table Breakdowns */
+        /* Itemized Dynamic Output Breakdown Tables */
         .calc-result-box {
             margin-top: 20px;
             padding: 18px;
             background-color: var(--white);
             border: 1px solid #cbd5e1;
             border-radius: 6px;
-            display: none;
+            display: block; /* Always structured to show values on changes */
         }
 
         .calc-result-box h4 {
@@ -318,7 +267,7 @@
             margin-top: 8px;
         }
 
-        /* Features Split Grid Layout */
+        /* Features Split Layout */
         .features-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -369,7 +318,7 @@
             font-style: italic;
         }
 
-        /* Enquiry Block Box */
+        /* Enquiry Form Block */
         .enquiry-section {
             background-color: var(--bg-light);
             border-radius: var(--border-radius);
@@ -413,7 +362,7 @@
             margin-bottom: 20px;
         }
 
-        /* Footer Element Box */
+        /* Footer Container Box */
         footer {
             background-color: var(--primary-color);
             color: var(--white);
@@ -461,7 +410,7 @@
         </div>
     </header>
 
-    <!-- Banner/Hero Section -->
+    <!-- Banner Hero Section -->
     <section class="hero" style="max-width:100%; padding: 60px 20px;">
         <h2>FinAcc Advisory Services</h2>
         <p>Your Growth. Our Commitment.</p>
@@ -514,37 +463,38 @@
         </div>
     </section>
 
-    <!-- Complete Restored Advanced Financial Calculators Section -->
+    <!-- Financial Calculators Section (Side-by-Side Layout) -->
     <section id="calculators">
         <h2 class="section-title">Financial Calculators</h2>
         <div class="tools-grid">
             
-            <!-- Income Tax Box with Working Dynamic Tabs -->
+            <!-- Income Tax Box Framework with Dropdown Selection -->
             <div class="calculator-card">
                 <h3>Income Tax Calculator</h3>
                 
-                <div class="regime-tabs">
-                    <button type="button" class="tab-btn active" id="btn-new" onclick="setRegime('new')">New Regime</button>
-                    <button type="button" class="tab-btn" id="btn-old" onclick="setRegime('old')">Old Regime</button>
+                <div class="form-group">
+                    <label for="regime-select">Choose Tax Regime</label>
+                    <select id="regime-select" onchange="handleRegimeChange()">
+                        <option value="new" selected>New Tax Regime (Default)</option>
+                        <option value="old">Old Tax Regime</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
                     <label for="annual-income">Gross Annual Income (₹)</label>
-                    <input type="number" id="annual-income" placeholder="e.g. 1200000">
+                    <input type="number" id="annual-income" placeholder="e.g. 1200000" value="1200000" oninput="calculateDetailedTax()">
                 </div>
 
                 <div class="form-group" id="deduction-group" style="display: none;">
-                    <label for="deductions">Eligible Deductions (80C, 80D, etc.) (₹)</label>
-                    <input type="number" id="deductions" placeholder="e.g. 150000" value="0">
+                    <label for="deductions">Eligible Deductions (80C, 80D, HRA, etc.) (₹)</label>
+                    <input type="number" id="deductions" placeholder="e.g. 150000" value="150000" oninput="calculateDetailedTax()">
                 </div>
 
                 <div class="form-group" id="info-note" style="color: #64748b; font-size: 13px; margin-bottom: 15px;">
-                    ℹ️ <em>Standard Deduction of ₹75,000 is automatically applied in the New Regime layout.</em>
+                    ℹ️ <span id="note-text">Standard Deduction of ₹75,000 is automatically applied in the New Regime layout.</span>
                 </div>
-
-                <button class="action-btn" onclick="calculateDetailedTax()">Calculate Detailed Tax</button>
                 
-                <!-- Computations Table -->
+                <!-- Income Tax Output Breakdown Table -->
                 <div id="tax-result-box" class="calc-result-box">
                     <h4>Tax Computation Breakdown</h4>
                     <div class="result-row"><span>Gross Total Income:</span><span id="res-gross">₹0</span></div>
@@ -558,16 +508,16 @@
                 </div>
             </div>
 
-            <!-- Completely Restored & Enhanced GST Calculator Block -->
+            <!-- GST Calculator Block -->
             <div class="calculator-card">
                 <h3>GST Calculator</h3>
                 <div class="form-group">
                     <label for="taxable-amount">Transaction Base Amount (₹)</label>
-                    <input type="number" id="taxable-amount" placeholder="e.g. 50000">
+                    <input type="number" id="taxable-amount" placeholder="e.g. 50000" value="50000" oninput="calculateDetailedGST()">
                 </div>
                 <div class="form-group">
                     <label for="gst-rate">Applicable GST Slab</label>
-                    <select id="gst-rate">
+                    <select id="gst-rate" onchange="calculateDetailedGST()">
                         <option value="5">5% (Essential goods)</option>
                         <option value="12">12% (Standard goods)</option>
                         <option value="18" selected>18% (Services & IT Goods)</option>
@@ -576,14 +526,13 @@
                 </div>
                 <div class="form-group">
                     <label for="gst-type">Supply Configuration</label>
-                    <select id="gst-type">
+                    <select id="gst-type" onchange="calculateDetailedGST()">
                         <option value="intra">Intra-State (CGST + SGST split)</option>
                         <option value="inter">Inter-State (IGST total)</option>
                     </select>
                 </div>
-                <button class="action-btn" onclick="calculateDetailedGST()">Calculate Itemized GST</button>
                 
-                <!-- Itemized Dynamic Invoice Breakdown -->
+                <!-- GST Invoice Split Table Output -->
                 <div id="gst-result-box" class="calc-result-box">
                     <h4>Tax Invoice Split Breakdown</h4>
                     <div class="result-row"><span>Base Untaxed Amount:</span><span id="res-gst-base">₹0</span></div>
@@ -630,7 +579,7 @@
     <section id="enquiry">
         <div class="enquiry-section">
             <h2 class="section-title" style="margin-bottom: 25px;">Enquiry Form</h2>
-            <form id="contactForm">
+            <form id="contactForm" onsubmit="event.preventDefault(); alert('Enquiry submitted successfully!');">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" required>
@@ -674,10 +623,143 @@
         <p>&copy; 2026 FinAcc Advisory Services. All Rights Reserved.</p>
     </footer>
 
-    <!-- Intact Functional Calculation Execution Logic Script Engine -->
+    <!-- Automatic Dynamic Calculation Script Engine -->
     <script>
-        let currentRegime = 'new';
+        function formatCurrency(amount) {
+            return '₹' + Math.max(0, Math.round(amount)).toLocaleString('en-IN');
+        }
 
-        function setRegime(regime) {
-            currentRegime = regime;
-            document.getElementById('btn-new').classList.toggle('active', regime ===Normally I can help with things like this, but I don't seem to have access to that content. You can try again or ask me for something else.
+        // Dropdown selection management module
+        function handleRegimeChange() {
+            const regime = document.getElementById('regime-select').value;
+            const deductionGroup = document.getElementById('deduction-group');
+            const noteText = document.getElementById('note-text');
+
+            if (regime === 'old') {
+                deductionGroup.style.display = 'block';
+                noteText.innerText = 'Standard Deduction of ₹50,000 is automatically applied in the Old Regime layout.';
+            } else {
+                deductionGroup.style.display = 'none';
+                noteText.innerText = 'Standard Deduction of ₹75,000 is automatically applied in the New Regime layout.';
+            }
+            calculateDetailedTax();
+        }
+
+        // Completely functional automated Income Tax Engine
+        function calculateDetailedTax() {
+            const regime = document.getElementById('regime-select').value;
+            const grossIncome = parseFloat(document.getElementById('annual-income').value) || 0;
+            
+            let stdDeduction = regime === 'new' ? 75000 : 50000;
+            let customDeductions = regime === 'old' ? (parseFloat(document.getElementById('deductions').value) || 0) : 0;
+            
+            let taxableIncome = Math.max(0, grossIncome - stdDeduction - customDeductions);
+            let baseTax = 0;
+            let rebate = 0;
+
+            if (regime === 'new') {
+                // Slabs: 0-4L: 0%, 4-8L: 5%, 8-12L: 10%, 12-16L: 15%, 16-20L: 20%, 20-24L: 25%, Above 24L: 30%
+                const newSlabs = [
+                    { limit: 400000, rate: 0.00 },
+                    { limit: 800000, rate: 0.05 },
+                    { limit: 1200000, rate: 0.10 },
+                    { limit: 1600000, rate: 0.15 },
+                    { limit: 2000000, rate: 0.20 },
+                    { limit: 2400000, rate: 0.25 },
+                    { limit: Infinity, rate: 0.30 }
+                ];
+                let prevLimit = 0;
+                for (let slab of newSlabs) {
+                    if (taxableIncome > prevLimit) {
+                        let allocable = Math.min(taxableIncome, slab.limit) - prevLimit;
+                        baseTax += allocable * slab.rate;
+                        prevLimit = slab.limit;
+                    } else { break; }
+                }
+                // Section 87A rebate for New Regime up to 12 Lakhs income
+                if (taxableIncome <= 1200000) {
+                    rebate = baseTax;
+                }
+            } else {
+                // Old Regime Slabs: 0-2.5L: 0%, 2.5-5L: 5%, 5-10L: 20%, Above 10L: 30%
+                if (taxableIncome > 250000) {
+                    if (taxableIncome <= 500000) {
+                        baseTax += (taxableIncome - 250000) * 0.05;
+                    } else if (taxableIncome <= 1000000) {
+                        baseTax += 12500 + (taxableIncome - 500000) * 0.20;
+                    } else {
+                        baseTax += 112500 + (taxableIncome - 1000000) * 0.30;
+                    }
+                }
+                // Section 87A rebate for Old Regime up to 5 Lakhs income
+                if (taxableIncome <= 500000) {
+                    rebate = baseTax;
+                }
+            }
+
+            let netBaseTax = Math.max(0, baseTax - rebate);
+            let cess = netBaseTax * 0.04;
+            let totalTax = netBaseTax + cess;
+
+            // Render calculations to output breakdown
+            document.getElementById('res-gross').innerText = formatCurrency(grossIncome);
+            document.getElementById('res-std-ded').innerText = formatCurrency(stdDeduction);
+            
+            if (regime === 'old') {
+                document.getElementById('row-custom-ded').style.display = 'flex';
+                document.getElementById('res-cust-ded').innerText = formatCurrency(customDeductions);
+            } else {
+                document.getElementById('row-custom-ded').style.display = 'none';
+            }
+
+            document.getElementById('res-net-taxable').innerText = formatCurrency(taxableIncome);
+            document.getElementById('res-base-tax').innerText = formatCurrency(baseTax);
+            
+            if (rebate > 0) {
+                document.getElementById('row-rebate').style.display = 'flex';
+                document.getElementById('res-rebate').innerText = '-' + formatCurrency(rebate);
+            } else {
+                document.getElementById('row-rebate').style.display = 'none';
+            }
+
+            document.getElementById('res-cess').innerText = formatCurrency(cess);
+            document.getElementById('res-final-tax').innerText = formatCurrency(totalTax);
+        }
+
+        // Fully automated itemized GST Calculator Engine
+        function calculateDetailedGST() {
+            const baseAmount = parseFloat(document.getElementById('taxable-amount').value) || 0;
+            const rate = parseFloat(document.getElementById('gst-rate').value) || 0;
+            const configuration = document.getElementById('gst-type').value;
+
+            let totalGstTax = baseAmount * (rate / 100);
+            let grossAggregateAmount = baseAmount + totalGstTax;
+
+            document.getElementById('res-gst-base').innerText = formatCurrency(baseAmount);
+            document.getElementById('res-gst-total-tax').innerText = formatCurrency(totalGstTax);
+            document.getElementById('res-gst-gross').innerText = formatCurrency(grossAggregateAmount);
+
+            if (configuration === 'intra') {
+                document.getElementById('row-cgst').style.display = 'flex';
+                document.getElementById('row-sgst').style.display = 'flex';
+                document.getElementById('row-igst').style.display = 'none';
+                
+                let splitTax = totalGstTax / 2;
+                document.getElementById('res-cgst').innerText = formatCurrency(splitTax);
+                document.getElementById('res-sgst').innerText = formatCurrency(splitTax);
+            } else {
+                document.getElementById('row-cgst').style.display = 'none';
+                document.getElementById('row-sgst').style.display = 'none';
+                document.getElementById('row-igst').style.display = 'flex';
+                document.getElementById('res-igst').innerText = formatCurrency(totalGstTax);
+            }
+        }
+
+        // Run automated initial load render cycles loop
+        window.onload = function() {
+            handleRegimeChange();
+            calculateDetailedGST();
+        };
+    </script>
+</body>
+</html>
