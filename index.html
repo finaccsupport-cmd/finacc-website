@@ -218,9 +218,12 @@
             flex: 1;
             background: none;
             color: var(--primary-color);
-            padding: 8px;
+            padding: 10px;
             font-size: 14px;
+            font-weight: 600;
             border-radius: 4px;
+            border: none;
+            cursor: pointer;
             transition: all 0.2s ease;
         }
 
@@ -410,7 +413,6 @@
 </head>
 <body>
 
-    <!-- Header Navigation Section -->
     <header>
         <div class="nav-container">
             <div class="logo-area">
@@ -432,13 +434,11 @@
         </div>
     </header>
 
-    <!-- Banner/Hero Section -->
     <section class="hero" style="max-width:100%; padding: 60px 20px;">
         <h2>FinAcc Advisory Services</h2>
         <p>Your Growth. Our Commitment.</p>
     </section>
 
-    <!-- About Us Section -->
     <section id="about">
         <h2 class="section-title">About Us</h2>
         <div class="about-content">
@@ -446,7 +446,6 @@
         </div>
     </section>
 
-    <!-- Our Services Section -->
     <section id="services">
         <h2 class="section-title">Our Services</h2>
         <div class="services-grid">
@@ -485,12 +484,10 @@
         </div>
     </section>
 
-    <!-- Detailed Financial Calculators Section -->
     <section id="calculators">
         <h2 class="section-title">Financial Calculators</h2>
         <div class="tools-grid">
             
-            <!-- Income Tax Tool Box with Regime Selection Tabs -->
             <div class="calculator-card">
                 <h3>Income Tax Calculator</h3>
                 
@@ -504,7 +501,6 @@
                     <input type="number" id="annual-income" placeholder="e.g. 1200000">
                 </div>
 
-                <!-- Dynamically shifted container depending on selected active regime tab -->
                 <div class="form-group" id="deduction-group" style="display: none;">
                     <label for="deductions">Eligible Deductions (80C, 80D, etc.) (₹)</label>
                     <input type="number" id="deductions" placeholder="e.g. 150000" value="0">
@@ -516,7 +512,6 @@
 
                 <button onclick="calculateDetailedTax()">Calculate Detailed Tax</button>
                 
-                <!-- Detailed Breakdown Component Box -->
                 <div id="tax-result-box" class="calc-result-box">
                     <h4>Tax Computation Breakdown</h4>
                     <div class="result-row"><span>Gross Total Income:</span><span id="res-gross">₹0</span></div>
@@ -525,132 +520,4 @@
                     <div class="result-row" style="font-weight:600;"><span>Net Taxable Income:</span><span id="res-net-taxable">₹0</span></div>
                     <div class="result-row"><span>Base Slab Tax:</span><span id="res-base-tax">₹0</span></div>
                     <div class="result-row" id="row-rebate" style="color: #0d9488; display:none;"><span>Tax Rebate Applied:</span><span id="res-rebate">₹0</span></div>
-                    <div class="result-row"><span>Health & Education Cess (4%):</span><span id="res-cess">₹0</span></div>
-                    <div class="result-row total-row"><span>Total Payable Tax:</span><span id="res-final-tax">₹0</span></div>
-                </div>
-            </div>
-
-            <!-- GST Calculator with Detailed Splits -->
-            <div class="calculator-card">
-                <h3>GST Calculator</h3>
-                <div class="form-group">
-                    <label for="taxable-amount">Transaction Base Amount (₹)</label>
-                    <input type="number" id="taxable-amount" placeholder="e.g. 50000">
-                </div>
-                <div class="form-group">
-                    <label for="gst-rate">Applicable GST Slab</label>
-                    <select id="gst-rate">
-                        <option value="5">5% (Essential items)</option>
-                        <option value="12">12% (Standard goods)</option>
-                        <option value="18" selected>18% (Services & Goods)</option>
-                        <option value="28">28% (Luxury items)</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="gst-type">Supply Configuration</label>
-                    <select id="gst-type">
-                        <option value="intra">Intra-State (CGST + SGST split)</option>
-                        <option value="inter">Inter-State (IGST total)</option>
-                    </select>
-                </div>
-                <button onclick="calculateDetailedGST()">Calculate Itemized GST</button>
-                
-                <!-- Itemized Invoice Grid Breakdown -->
-                <div id="gst-result-box" class="calc-result-box">
-                    <h4>Tax Invoice Split Breakdown</h4>
-                    <div class="result-row"><span>Base Untaxed Amount:</span><span id="res-gst-base">₹0</span></div>
-                    <div class="result-row" id="row-cgst"><span>CGST (Central Tax):</span><span id="res-cgst">₹0</span></div>
-                    <div class="result-row" id="row-sgst"><span>SGST (State Tax):</span><span id="res-sgst">₹0</span></div>
-                    <div class="result-row" id="row-igst" style="display:none;"><span>IGST (Integrated Tax):</span><span id="res-igst">₹0</span></div>
-                    <div class="result-row"><span>Gross Aggregate Tax:</span><span id="res-gst-total-tax">₹0</span></div>
-                    <div class="result-row total-row"><span>Total Invoice Amount:</span><span id="res-gst-gross">₹0</span></div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Why FinAcc & Testimonials Split Container -->
-    <section id="why-us">
-        <div class="features-grid">
-            <div>
-                <h2 class="section-title" style="text-align: left; padding-bottom: 10px; margin-bottom: 25px;">Why FinAcc?</h2>
-                <ul class="feature-list">
-                    <li>Experienced Finance Leadership</li>
-                    <li>Practical Business Solutions</li>
-                    <li>Strong Financial Controls</li>
-                    <li>Professional & Confidential Service</li>
-                    <li>Result-Oriented Approach</li>
-                </ul>
-            </div>
-            <div>
-                <h2 class="section-title" style="text-align: left; padding-bottom: 10px; margin-bottom: 25px;">Testimonials</h2>
-                <div class="testimonial-item">
-                    "Professional and reliable advisory support."
-                </div>
-                <div class="testimonial-item">
-                    "Excellent MIS reporting and finance expertise."
-                </div>
-                <div class="testimonial-item">
-                    "Trusted Virtual CFO services."
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Form Container -->
-    <section id="enquiry">
-        <div class="enquiry-section">
-            <h2 class="section-title" style="margin-bottom: 25px;">Enquiry Form</h2>
-            <form id="contactForm">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone</label>
-                    <input type="tel" id="phone" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="requirement">Your Requirement</label>
-                    <textarea id="requirement" rows="4" required></textarea>
-                </div>
-                <button type="submit">Submit Enquiry</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Leader/Founder Section -->
-    <section id="founder">
-        <h2 class="section-title">Founder Profile</h2>
-        <div class="founder-card">
-            <div class="founder-name">Vipul Vyas</div>
-            <div class="founder-title">Founder & Principal Consultant</div>
-            <div class="founder-degrees">B.Com (Mumbai) | CA PE-II | Acct. Tech. (ICAI) | GDC&A (Mumbai) | MBA (Finance)</div>
-            <p class="founder-bio">More than 20 years of experience in Accounts, Finance, MIS Reporting, Cash Flow Management, Internal Audit, Financial Controls and Business Process Improvement.</p>
-        </div>
-    </section>
-
-    <!-- Footer Content Metadata -->
-    <footer>
-        <div class="footer-contacts">
-            <span>📍 Ahmedabad, Gujarat</span> | 
-            <span>📞 <a href="tel:+919594151218">+91 95941 51218</a></span> | 
-            <span>✉️ <a href="mailto:FinAcc.support@gmail.com">FinAcc.support@gmail.com</a></span> | 
-            <span>🌐 <a href="http://www.finaccadvisory.com" target="_blank">www.finaccadvisory.com</a></span>
-        </div>
-        <p>&copy; 2026 FinAcc Advisory Services. All Rights Reserved.</p>
-    </footer>
-
-    <!-- Interactive Execution Logic Engine -->
-    <script>
-        let currentRegime = 'new';
-
-        function setRegime(regime) {
-            currentRegime = regime;
-            document.getElementById('btn-new').classList.toggle('active', regime === 'new');
-            document.Normally I can help with things like this, but I don't seem to have access to that content. You can try again or ask me for something else.
+                    <div class="result-row"><span>Health & Education Cess (4%):</span><span id="res-cess">₹0</span>
